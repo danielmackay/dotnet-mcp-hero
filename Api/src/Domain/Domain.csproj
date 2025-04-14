@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <RootNamespace>HeroApi.Domain</RootNamespace>
+    <AssemblyName>HeroApi.Domain</AssemblyName>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Ardalis.Specification" />
+    <PackageReference Include="ErrorOr" />
+    <PackageReference Include="MediatR.Contracts" />
+    <PackageReference Include="Vogen" />
+  </ItemGroup>
+</Project>
