@@ -1,9 +1,9 @@
 {
-  "descriptionHash": "75AFD8BA76907FB8769BBBDFD112CCA5A5E3B458303D7680A03925C53A269268299A7AD853978E8662A8001E015554A3FC61014F43354DC1B7EF083BA5E3DA07",
+  "descriptionHash": "66DD72C60B17B7CF1EF9362829B4B031B83BE0B5FE55811D5AE1D34DE21A08CD4C7C511F3FD88373239BE0938D5DB1CD30D10E7F18ECB76081C038557CE7817C",
   "descriptionLocation": "https://localhost:7255/openapi/v1.json",
   "lockFileVersion": "1.0.0",
   "kiotaVersion": "1.25.1",
-  "clientClassName": "HeroApi",
+  "clientClassName": "HeroClient",
   "typeAccessModifier": "Public",
   "clientNamespaceName": "ApiSdk",
   "language": "CSharp",

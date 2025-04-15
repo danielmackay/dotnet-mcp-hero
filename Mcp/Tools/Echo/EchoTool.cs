@@ -1,7 +1,7 @@
 using ModelContextProtocol.Server;
 using System.ComponentModel;
 
-namespace HeroMcp.Tools;
+namespace HeroMcp.Tools.Echo;
 
 [McpServerToolType]
 public static class EchoTool

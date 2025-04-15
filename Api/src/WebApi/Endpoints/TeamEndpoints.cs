@@ -7,7 +7,6 @@ using HeroApi.Application.UseCases.Teams.Commands.ExecuteMission;
 using HeroApi.Application.UseCases.Teams.Queries.GetAllTeams;
 using HeroApi.Application.UseCases.Teams.Queries.GetTeam;
 using HeroApi.WebApi.Extensions;
-using TeamDto = HeroApi.Application.UseCases.Teams.Queries.GetAllTeams.TeamDto;
 
 namespace HeroApi.WebApi.Endpoints;
 
@@ -33,7 +32,7 @@ public static class TeamEndpoints
                 return Results.Ok(results);
             })
             .WithName("GetAllTeams")
-            .ProducesGet<TeamDto[]>();
+            .ProducesGet<HeroApi.Application.UseCases.Teams.Queries.GetAllTeams.TeamDto[]>();
 
         group
             .MapPost("/{teamId:guid}/heroes/{heroId:guid}", async (
@@ -58,7 +57,7 @@ public static class TeamEndpoints
                     return results.Match(TypedResults.Ok, CustomResult.Problem);
                 })
             .WithName("GetTeam")
-            .ProducesGet<TeamDto>();
+            .ProducesGet<HeroApi.Application.UseCases.Teams.Queries.GetTeam.TeamDto>();
 
         group
             .MapPost("/{teamId:guid}/execute-mission",

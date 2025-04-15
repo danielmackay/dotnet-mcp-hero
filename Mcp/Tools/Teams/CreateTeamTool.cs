@@ -1,12 +1,9 @@
-using ModelContextProtocol.Server;
-using System.ComponentModel;
 using ApiSdk;
 using ApiSdk.Models;
-using ModelContextProtocol;
-using System;
-using System.Threading.Tasks;
+using ModelContextProtocol.Server;
+using System.ComponentModel;
 
-namespace HeroMcp.Tools;
+namespace HeroMcp.Tools.Teams;
 
 [McpServerToolType]
 public static class CreateTeamTool
@@ -14,7 +11,7 @@ public static class CreateTeamTool
     [McpServerTool, Description("Create a new team.")]
     public static async Task<string> CreateTeam(
         [Description("name of the team")]string name,
-        HeroApi api,
+        HeroClient client,
         IMcpServer server)
     {
         if (string.IsNullOrEmpty(name))
@@ -27,7 +24,7 @@ public static class CreateTeamTool
                 Name = name
             };
 
-            await api.Api.Teams.PostAsync(command);
+            await client.Api.Teams.PostAsync(command);
             return $"Team '{name}' successfully created!";
         }
         catch (Exception ex)

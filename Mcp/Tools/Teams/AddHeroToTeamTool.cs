@@ -1,10 +1,8 @@
+using ApiSdk;
 using ModelContextProtocol.Server;
 using System.ComponentModel;
-using ApiSdk;
-using System;
-using System.Threading.Tasks;
 
-namespace HeroMcp.Tools;
+namespace HeroMcp.Tools.Teams;
 
 [McpServerToolType]
 public static class AddHeroToTeamTool
@@ -13,7 +11,7 @@ public static class AddHeroToTeamTool
     public static async Task<string> AddHeroToTeam(
         [Description("ID of the team")]string teamId,
         [Description("ID of the hero to add")]string heroId,
-        HeroApi api)
+        HeroClient client)
     {
         if (string.IsNullOrEmpty(teamId))
             return "Error: Team ID is required";
@@ -29,7 +27,7 @@ public static class AddHeroToTeamTool
             if (!Guid.TryParse(heroId, out Guid heroGuid))
                 return "Error: Invalid Hero ID format";
 
-            await api.Api.Teams[teamGuid].Heroes[heroGuid].PostAsync();
+            await client.Api.Teams[teamGuid].Heroes[heroGuid].PostAsync();
 
             return $"Hero with ID {heroId} successfully added to team with ID {teamId}";
         }

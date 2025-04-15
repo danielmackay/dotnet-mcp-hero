@@ -1,24 +1,21 @@
+using ApiSdk;
 using ModelContextProtocol.Server;
 using System.ComponentModel;
-using ApiSdk;
-using System;
-using System.Linq;
 using System.Text.Json;
-using System.Threading.Tasks;
 
-namespace HeroMcp.Tools;
+namespace HeroMcp.Tools.Teams;
 
 [McpServerToolType]
 public static class GetTeamsTool
 {
     [McpServerTool, Description("Get all teams from the API.")]
-    public static async Task<string> GetTeams(HeroApi api)
+    public static async Task<string> GetTeams(HeroClient client)
     {
         try
         {
-            var teams = await api.Api.Teams.GetAsync();
+            var teams = await client.Api.Teams.GetAsync();
 
-            if (teams == null || !teams.Any())
+            if (teams == null || teams.Count == 0)
                 return "No teams found.";
 
             return JsonSerializer.Serialize(teams);

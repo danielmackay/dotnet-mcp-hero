@@ -1,11 +1,9 @@
-using ModelContextProtocol.Server;
-using System.ComponentModel;
 using ApiSdk;
 using ApiSdk.Models;
-using System;
-using System.Threading.Tasks;
+using ModelContextProtocol.Server;
+using System.ComponentModel;
 
-namespace HeroMcp.Tools;
+namespace HeroMcp.Tools.Teams;
 
 [McpServerToolType]
 public static class ExecuteMissionTool
@@ -14,7 +12,7 @@ public static class ExecuteMissionTool
     public static async Task<string> ExecuteMission(
         [Description("ID of the team")]string teamId,
         [Description("Description of the mission")]string missionDescription,
-        HeroApi api)
+        HeroClient client)
     {
         if (string.IsNullOrEmpty(teamId))
             return "Error: Team ID is required";
@@ -34,7 +32,7 @@ public static class ExecuteMissionTool
             };
 
             // Send the request to the server
-            await api.Api.Teams[teamGuid].ExecuteMission.PostAsync(command);
+            await client.Api.Teams[teamGuid].ExecuteMission.PostAsync(command);
 
             return $"Team {teamId} has been sent on mission: '{missionDescription}'";
         }

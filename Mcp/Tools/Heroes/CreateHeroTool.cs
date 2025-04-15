@@ -1,13 +1,9 @@
-using ModelContextProtocol.Server;
-using System.ComponentModel;
 using ApiSdk;
 using ApiSdk.Models;
-using Microsoft.Extensions.DependencyInjection;
-using ModelContextProtocol;
-using System;
-using System.Threading.Tasks;
+using ModelContextProtocol.Server;
+using System.ComponentModel;
 
-namespace HeroMcp.Tools;
+namespace HeroMcp.Tools.Heroes;
 
 [McpServerToolType]
 public static class CreateHeroTool
@@ -18,8 +14,7 @@ public static class CreateHeroTool
         [Description("hero alias")]string alias,
         [Description("power name")]string powerName,
         [Description("power level")]int powerLevel,
-        HeroApi api,
-        IMcpServer server)
+        HeroClient client)
     {
         if (string.IsNullOrEmpty(name))
             return "Error: Hero name is required";
@@ -39,7 +34,7 @@ public static class CreateHeroTool
                 Powers = [new CreateHeroPowerDto { Name = powerName, PowerLevel = powerLevel }]
             };
 
-            await api.Api.Heroes.PostAsync(command);
+            await client.Api.Heroes.PostAsync(command);
             return $"Hero {name} ({alias}) successfully created with power level {powerLevel}";
         }
         catch (Exception ex)

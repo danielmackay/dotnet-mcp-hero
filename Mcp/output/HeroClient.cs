@@ -17,7 +17,7 @@ namespace ApiSdk
     /// The main entry point of the SDK, exposes the configuration and the fluent API.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class HeroApi : BaseRequestBuilder
+    public partial class HeroClient : BaseRequestBuilder
     {
         /// <summary>The api property</summary>
         public global::ApiSdk.Api.ApiRequestBuilder Api
@@ -25,10 +25,10 @@ namespace ApiSdk
             get => new global::ApiSdk.Api.ApiRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::ApiSdk.HeroApi"/> and sets the default values.
+        /// Instantiates a new <see cref="global::ApiSdk.HeroClient"/> and sets the default values.
         /// </summary>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public HeroApi(IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}", new Dictionary<string, object>())
+        public HeroClient(IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}", new Dictionary<string, object>())
         {
             ApiClientBuilder.RegisterDefaultSerializer<JsonSerializationWriterFactory>();
             ApiClientBuilder.RegisterDefaultSerializer<TextSerializationWriterFactory>();

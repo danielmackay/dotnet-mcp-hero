@@ -5,8 +5,6 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Authentication;
 using Microsoft.Kiota.Http.HttpClientLibrary;
-using ModelContextProtocol.Server;
-using System.ComponentModel;
 
 var builder = Host.CreateApplicationBuilder(args);
 builder.Logging.AddConsole(consoleLogOptions =>
@@ -23,7 +21,7 @@ builder.Services
 var authProvider = new AnonymousAuthenticationProvider();
 var adapter = new HttpClientRequestAdapter(authProvider);
 builder.Services.AddSingleton<IRequestAdapter>(adapter);
-builder.Services.AddSingleton<HeroApi>();
+builder.Services.AddSingleton<HeroClient>();
 
 await builder.Build().RunAsync();
 

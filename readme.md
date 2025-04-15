@@ -103,7 +103,7 @@ cd Mcp
 3. Run the Kiota generator:
 
 ```bash
-dotnet kiota generate --openapi https://localhost:7255/openapi/v1.json --language csharp --class-name HeroApi --clean-output --additional-data false
+dotnet kiota generate --openapi https://localhost:7255/openapi/v1.json --language csharp --class-name HeroClient --clean-output --additional-data false
 ```
 
 This will regenerate the API client in the `output` directory based on the latest OpenAPI specification.
