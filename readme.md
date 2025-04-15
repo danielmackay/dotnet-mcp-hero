@@ -66,6 +66,29 @@ dotnet run
 
 This starts the MCP server which provides tools for interacting with the HeroApi.
 
+### Running the MCP Inspector
+
+The MCP Inspector is a helpful tool for testing your MCP server directly. It allows you to inspect available tools and call them interactively.
+
+1. Navigate to the Mcp directory:
+
+```bash
+cd Mcp
+```
+
+2. Run the MCP Inspector with the following command:
+
+```bash
+npx @modelcontextprotocol/inspector dotnet run
+```
+
+This will:
+- Start the MCP server
+- Launch the MCP Inspector in a terminal interface
+- Display available tools and allow you to test them interactively
+
+The inspector will show all available tools from your MCP server and provides a simple interface to call them and view their responses, which is useful for development and debugging.
+
 ### Generating the API Client
 
 The project uses Microsoft Kiota to generate a strongly-typed API client. To regenerate the client:
